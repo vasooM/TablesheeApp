@@ -42,10 +42,10 @@ namespace Tablesheet
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtDeadline = new System.Windows.Forms.TextBox();
             this.txtJobAdmin = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.txtDeadline = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,13 +156,6 @@ namespace Tablesheet
             this.label4.TabIndex = 11;
             this.label4.Text = "Account";
             // 
-            // txtDeadline
-            // 
-            this.txtDeadline.Location = new System.Drawing.Point(474, 51);
-            this.txtDeadline.Name = "txtDeadline";
-            this.txtDeadline.Size = new System.Drawing.Size(100, 20);
-            this.txtDeadline.TabIndex = 12;
-            // 
             // txtJobAdmin
             // 
             this.txtJobAdmin.Location = new System.Drawing.Point(368, 51);
@@ -188,15 +181,23 @@ namespace Tablesheet
             this.label6.TabIndex = 15;
             this.label6.Text = "Deadline";
             // 
+            // txtDeadline
+            // 
+            this.txtDeadline.Location = new System.Drawing.Point(474, 51);
+            this.txtDeadline.Name = "txtDeadline";
+            this.txtDeadline.ReadOnly = true;
+            this.txtDeadline.Size = new System.Drawing.Size(100, 20);
+            this.txtDeadline.TabIndex = 16;
+            // 
             // Timesheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 319);
+            this.Controls.Add(this.txtDeadline);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtJobAdmin);
-            this.Controls.Add(this.txtDeadline);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -231,10 +232,10 @@ namespace Tablesheet
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDeadline;
         private System.Windows.Forms.TextBox txtJobAdmin;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbJobCode;
+        private System.Windows.Forms.TextBox txtDeadline;
     }
 }

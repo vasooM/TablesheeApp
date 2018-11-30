@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Tablesheet.Infrastructure;
-using System.Data.SqlClient;
 
 namespace Tablesheet.Core
 {

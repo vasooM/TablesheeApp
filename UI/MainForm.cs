@@ -16,21 +16,24 @@ namespace Tablesheet
 {
     public partial class Timesheet : Form
     {
-        ClientBLL clientName = new ClientBLL();
-        JobBLL jobCode = new JobBLL();
-        ActivityBLL activityName = new ActivityBLL();
 
         public Timesheet()
         {
             InitializeComponent();
         }
-        
+
+
+        ClientBLL clientName = new ClientBLL();
+        JobBLL jobCode = new JobBLL();
+        ActivityBLL activityName = new ActivityBLL();
+        EmployeeBLL empName = new EmployeeBLL();
+        TimesheetBLL endDate = new TimesheetBLL();
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-     
+
         private void Timesheet_Load(object sender, EventArgs e)
         {
             cbJobCode.DisplayMember = "Code";
@@ -44,6 +47,14 @@ namespace Tablesheet
             cbActivity.ValueMember = "ID";
             cbActivity.DataSource = activityName.GetActivityName();
             cbActivity.SelectedIndex = -1;
+
+            txtJobAdmin.AutoCompleteMode = AutoCompleteMode.Suggest;
+            txtJobAdmin.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            AutoCompleteStringCollection name = new AutoCompleteStringCollection();
+            name.AddRange(empName.GetEmployeeFullName().ToArray());
+            txtJobAdmin.AutoCompleteCustomSource = name;
+
+
         }
 
         private void cbJobCode_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,6 +63,9 @@ namespace Tablesheet
             cbAccount.DisplayMember = "Name";
             cbAccount.ValueMember = "ID";
             cbAccount.DataSource = clientName.GetClientNameWithJobCode(name);
+
+            txtDeadline.Text = endDate.GetEndDateWithJobCode(name).ToString();
         }
+        
     }
 }
