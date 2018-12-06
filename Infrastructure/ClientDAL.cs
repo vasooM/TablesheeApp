@@ -32,15 +32,15 @@ namespace Tablesheet.Infrastructure
             catch { throw; }
         }
 
-        public DataTable searchByName(string name)
+        public DataTable SearchByCode(string code)
         {
             Connection conn = new Connection();
-            string query = string.Format("select Name from Client join Job on Client.ID = Job.ClientID where Job.Code = @Code");
-            SqlParameter[] sqlParameters = new SqlParameter[2];
-            sqlParameters[0] = new SqlParameter("@Name", SqlDbType.VarChar);
-            sqlParameters[0].Value = Convert.ToString(name);
-            sqlParameters[1] = new SqlParameter("@Code", SqlDbType.VarChar);
-            sqlParameters[1].Value = Convert.ToString(name);
+            string query = string.Format(@"select Name from Client join Job 
+                                            on Client.ID = Job.ClientID 
+                                            where Job.Code = @Code");
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@Code", SqlDbType.VarChar);
+            sqlParameters[0].Value = Convert.ToString(code);
             return conn.SelectQuery(query, sqlParameters);
         }
     }

@@ -46,7 +46,13 @@ namespace Tablesheet
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtDeadline = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.stripEmpName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stripNextShift = new System.Windows.Forms.ToolStripStatusLabel();
+            this.stripStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnOpen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -189,11 +195,54 @@ namespace Tablesheet
             this.txtDeadline.Size = new System.Drawing.Size(100, 20);
             this.txtDeadline.TabIndex = 16;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stripEmpName,
+            this.stripStatus,
+            this.stripNextShift});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 297);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.statusStrip1.Size = new System.Drawing.Size(813, 22);
+            this.statusStrip1.TabIndex = 17;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // stripEmpName
+            // 
+            this.stripEmpName.Name = "stripEmpName";
+            this.stripEmpName.Size = new System.Drawing.Size(63, 17);
+            this.stripEmpName.Text = "EmpName";
+            // 
+            // stripNextShift
+            // 
+            this.stripNextShift.Name = "stripNextShift";
+            this.stripNextShift.Size = new System.Drawing.Size(55, 17);
+            this.stripNextShift.Text = "NextShift";
+            this.stripNextShift.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // stripStatus
+            // 
+            this.stripStatus.Name = "stripStatus";
+            this.stripStatus.Size = new System.Drawing.Size(39, 17);
+            this.stripStatus.Text = "Status";
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(12, 19);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 18;
+            this.btnOpen.Text = "Open";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            // 
             // Timesheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 319);
+            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtDeadline);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -214,6 +263,8 @@ namespace Tablesheet
             this.Text = "Timesheet";
             this.Load += new System.EventHandler(this.Timesheet_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,5 +288,10 @@ namespace Tablesheet
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbJobCode;
         private System.Windows.Forms.TextBox txtDeadline;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel stripEmpName;
+        private System.Windows.Forms.ToolStripStatusLabel stripNextShift;
+        private System.Windows.Forms.ToolStripStatusLabel stripStatus;
+        private System.Windows.Forms.Button btnOpen;
     }
 }

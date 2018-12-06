@@ -10,7 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using Tablesheet.Core;
 using System.Configuration;
-using Tablesheet.Infrastructure;
+
+using Tablesheet.UI;
 
 namespace Tablesheet
 {
@@ -28,6 +29,18 @@ namespace Tablesheet
         ActivityBLL activityName = new ActivityBLL();
         EmployeeBLL empName = new EmployeeBLL();
         TimesheetBLL endDate = new TimesheetBLL();
+        ScheduleBLL nextShift = new ScheduleBLL();
+        ScheduleBLL objSch = new ScheduleBLL();
+        DataTable dt = new DataTable();
+        DataTable dt2 = new DataTable();
+        DataTable dtShift = new DataTable();
+        string deadline = string.Empty;
+        string employee = string.Empty;
+        string shift = string.Empty;
+
+        TimeSpan start = new TimeSpan();
+        TimeSpan end = new TimeSpan();
+        TimeSpan now = DateTime.Now.TimeOfDay;
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -36,6 +49,25 @@ namespace Tablesheet
 
         private void Timesheet_Load(object sender, EventArgs e)
         {
+            
+            dtShift = objSch.GetStartEndShift(Form1.user);
+            var shift2 = objSch.ConvertDataTableToString(dtShift);
+            start = TimeSpan.Parse(objSch.startShift);
+            end = TimeSpan.Parse(objSch.endShift);
+
+            btnOpen.Enabled = ((now > start) && (now < end));
+
+            if ((now > start) && (now < end))
+            {
+                stripStatus.Text = "                         Open Timesheet";
+            }
+            else
+            {
+                stripStatus.Text = "                        Timesheet Closed";
+                btnOpen.Enabled = false;
+            }
+
+
             cbJobCode.DisplayMember = "Code";
             cbJobCode.ValueMember = "ID";
             cbJobCode.DataSource = jobCode.GetJobCode();
@@ -53,7 +85,16 @@ namespace Tablesheet
             AutoCompleteStringCollection name = new AutoCompleteStringCollection();
             name.AddRange(empName.GetEmployeeFullName().ToArray());
             txtJobAdmin.AutoCompleteCustomSource = name;
+            
+            dt = empName.GetEmpNameByUsername(Form1.user);
+            employee = empName.ConvertDataTableToString(dt);
+            stripEmpName.Text = employee + "        ";
 
+            dt2 = nextShift.GetShiftDetails(Form1.user);
+            shift = nextShift.ConvertDataTableToString(dt2);
+            DateTime date = nextShift.dateTime;
+            stripNextShift.Spring = true;
+            stripNextShift.Text = "Next Shift:  " + date.ToShortDateString() + "   " + nextShift.nextShift;
 
         }
 
@@ -64,8 +105,10 @@ namespace Tablesheet
             cbAccount.ValueMember = "ID";
             cbAccount.DataSource = clientName.GetClientNameWithJobCode(name);
 
-            txtDeadline.Text = endDate.GetEndDateWithJobCode(name).ToString();
+            dt.Clear();
+            dt = endDate.GetEndDateWithJobCode(name);
+            deadline = endDate.ConvertDataTableToString(dt);
+            txtDeadline.Text = deadline;
         }
-        
     }
 }

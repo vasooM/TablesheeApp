@@ -14,19 +14,17 @@ namespace Tablesheet.Infrastructure
 
         public string endDate { get; set; }
 
-        public DataTable searchByName(string name)
+        public DataTable SearchByCode(string code)
         {
             Connection conn = new Connection();
             string query = string.Format(@"SELECT EndDate
                                             FROM Timesheet
-                                            INNER JOIN TimesheetEntry ON Timesheet.ID = TimesheetEntry.TimesheetID
-                                            INNER JOIN Job ON TimesheetEntry.ID = Job.ID
+                                            JOIN TimesheetEntry ON Timesheet.ID = TimesheetEntry.TimesheetID
+                                            JOIN Job ON TimesheetEntry.ID = Job.ID
                                             where Job.Code = @jobCode");
-            SqlParameter[] sqlParameters = new SqlParameter[2];
-            sqlParameters[0] = new SqlParameter("@EndDate", SqlDbType.VarChar);
-            sqlParameters[0].Value = Convert.ToString(name);
-            sqlParameters[1] = new SqlParameter("@jobCode", SqlDbType.VarChar);
-            sqlParameters[1].Value = Convert.ToString(name);
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@jobCode", SqlDbType.VarChar);
+            sqlParameters[0].Value = Convert.ToString(code);
             return conn.SelectQuery(query, sqlParameters);
         }
     }

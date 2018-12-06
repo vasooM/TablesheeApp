@@ -16,7 +16,7 @@ namespace Tablesheet.Core
             {
                 ClientDAL clientNameObj = new ClientDAL();
                 DataTable dt = new DataTable();
-                dt = clientNameObj.searchByName(code);
+                dt = clientNameObj.SearchByCode(code);
                 foreach (DataRow dr in dt.Rows)
                 {
                     clientNameObj.clientName = dr["Name"].ToString();

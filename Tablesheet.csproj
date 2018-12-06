@@ -87,17 +87,21 @@
     <Compile Include="Core\ClientBLL.cs" />
     <Compile Include="Core\EmployeeBLL.cs" />
     <Compile Include="Core\JobBLL.cs" />
+    <Compile Include="Core\LogInBLL.cs" />
+    <Compile Include="Core\ScheduleBLL.cs" />
     <Compile Include="Core\TimesheetBLL.cs" />
     <Compile Include="Infrastructure\ActivityDAL.cs" />
     <Compile Include="Infrastructure\ClientDAL.cs" />
     <Compile Include="Infrastructure\Connection.cs" />
     <Compile Include="Infrastructure\EmployeeDAL.cs" />
     <Compile Include="Infrastructure\JobDAL.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Infrastructure\LogInDAL.cs" />
+    <Compile Include="Infrastructure\ScheduleDAL.cs" />
+    <Compile Include="UI\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\TimesheetDAL.cs" />
     <Compile Include="UI\MainForm.cs">
@@ -113,8 +117,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TablesheetDataSet1.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UI\LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

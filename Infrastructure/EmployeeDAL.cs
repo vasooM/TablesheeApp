@@ -10,7 +10,8 @@ namespace Tablesheet.Infrastructure
 {
     public class EmployeeDAL
     {
-
+        public string usernameLog { get; set; }
+         
         public List<string> LoadList()
         {
             List<string> empNameList = new List<string>();
@@ -33,6 +34,30 @@ namespace Tablesheet.Infrastructure
                 return empNameList;
             }
             catch { throw; }
+        }
+
+        public DataTable ReadEmpNameByUsername(string username)
+        {
+            Connection conn = new Connection();
+            string query = string.Format(@"select FirstName + ' ' + LastName as FullName
+                                         from Employee join UserLogin on UserLogin.ID = Employee.UserLoginID 
+                                            where UserLogin.Username = @username");
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@username", SqlDbType.VarChar);
+            sqlParameters[0].Value = Convert.ToString(username);
+            return conn.SelectQuery(query, sqlParameters);
+        }
+
+        public DataTable ReadEmpLastNameByUsername(string username)
+        {
+            Connection conn = new Connection();
+            string query = string.Format(@"select LastName
+                                         from Employee join UserLogin on UserLogin.ID = Employee.UserLoginID 
+                                            where UserLogin.Username = @username");
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@username", SqlDbType.VarChar);
+            sqlParameters[0].Value = Convert.ToString(username);
+            return conn.SelectQuery(query, sqlParameters);
         }
     }
 }
