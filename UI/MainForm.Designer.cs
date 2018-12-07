@@ -48,9 +48,8 @@ namespace Tablesheet
             this.txtDeadline = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stripEmpName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.stripNextShift = new System.Windows.Forms.ToolStripStatusLabel();
             this.stripStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnOpen = new System.Windows.Forms.Button();
+            this.stripNextShift = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -214,6 +213,12 @@ namespace Tablesheet
             this.stripEmpName.Size = new System.Drawing.Size(63, 17);
             this.stripEmpName.Text = "EmpName";
             // 
+            // stripStatus
+            // 
+            this.stripStatus.Name = "stripStatus";
+            this.stripStatus.Size = new System.Drawing.Size(39, 17);
+            this.stripStatus.Text = "Status";
+            // 
             // stripNextShift
             // 
             this.stripNextShift.Name = "stripNextShift";
@@ -221,27 +226,11 @@ namespace Tablesheet
             this.stripNextShift.Text = "NextShift";
             this.stripNextShift.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // stripStatus
-            // 
-            this.stripStatus.Name = "stripStatus";
-            this.stripStatus.Size = new System.Drawing.Size(39, 17);
-            this.stripStatus.Text = "Status";
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.Location = new System.Drawing.Point(12, 19);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 18;
-            this.btnOpen.Text = "Open";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            // 
             // Timesheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 319);
-            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.txtDeadline);
             this.Controls.Add(this.label6);
@@ -292,6 +281,5 @@ namespace Tablesheet
         private System.Windows.Forms.ToolStripStatusLabel stripEmpName;
         private System.Windows.Forms.ToolStripStatusLabel stripNextShift;
         private System.Windows.Forms.ToolStripStatusLabel stripStatus;
-        private System.Windows.Forms.Button btnOpen;
     }
 }

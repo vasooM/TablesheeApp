@@ -51,12 +51,9 @@ namespace Tablesheet
         {
             
             dtShift = objSch.GetStartEndShift(Form1.user);
-            var shift2 = objSch.ConvertDataTableToString(dtShift);
             start = TimeSpan.Parse(objSch.startShift);
             end = TimeSpan.Parse(objSch.endShift);
-
-            btnOpen.Enabled = ((now > start) && (now < end));
-
+            
             if ((now > start) && (now < end))
             {
                 stripStatus.Text = "                         Open Timesheet";
@@ -64,7 +61,13 @@ namespace Tablesheet
             else
             {
                 stripStatus.Text = "                        Timesheet Closed";
-                btnOpen.Enabled = false;
+
+                foreach (Control item in this.Controls)
+                {
+                    item.Enabled = false;
+                }
+
+                btnClose.Enabled = true;
             }
 
 
