@@ -112,11 +112,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TablesheetDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TablesheetDataSet1.xsd</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="UI\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,29 +136,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TablesheetDataSet1.xsc">
-      <DependentUpon>TablesheetDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="TablesheetDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TablesheetDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TablesheetDataSet1.xss">
-      <DependentUpon>TablesheetDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Tablesheet.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Tablesheet_log.ldf">
-      <DependentUpon>Tablesheet.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
